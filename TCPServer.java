@@ -32,14 +32,15 @@ public class TCPServer {
             System.out.println("handleClient() started.");
 
             // Read and validate auth string
-            char[] authBuffer = new char[5];
+            char[] authBuffer = new char[VALID_AUTH.length()];
 
-            if (in.read(authBuffer, 0, 5) != 5 || !(new String(authBuffer).equals(VALID_AUTH))) {
-                System.out.println("Client rejected, auth: " + authBuffer);
+            if (in.read(authBuffer, 0, VALID_AUTH.length()) != VALID_AUTH.length()
+                    || !(new String(authBuffer).equals(VALID_AUTH))) {
+                System.out.println("Client rejected, auth: " + new String(authBuffer));
                 clientSocket.close(); // Drop connection if auth invalid
                 return;
             }
-            System.out.println("auth: " + authBuffer);
+            System.out.println("auth: " + new String(authBuffer));
 
             // Assign user ID and send to client
             int userId = nextUserId++;
