@@ -39,6 +39,7 @@ public class TCPServer {
 
             // Assign user ID and send to client
             int userId = nextUserId++;
+            System.out.println("Connected to a client, user ID: " + userId);
             out.println(userId);
 
             // Add client to list
