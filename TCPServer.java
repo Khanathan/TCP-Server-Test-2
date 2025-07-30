@@ -34,6 +34,7 @@ public class TCPServer {
             // Read and validate auth string
             // char[] authBuffer = new char[VALID_AUTH.length()];
             String auth = in.readLine();
+            System.out.println("auth = " + auth);
             if (auth.length() != VALID_AUTH.length()
                     || !auth.equals(VALID_AUTH)) {
                 System.out.println("Client rejected, auth: " + auth);
