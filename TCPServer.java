@@ -86,7 +86,7 @@ public class TCPServer {
                     continue; // Invalid message
                 }
                 String token = message.substring(0, 3);
-                String data = message.length() > 3 ? message.substring(3) : "";
+                String data = message.length() > 4 ? message.substring(4) : "";
 
                 switch (token) {
                     case "MSG":
@@ -98,6 +98,7 @@ public class TCPServer {
                     case "ALM":
                         System.out.println("Alarm received from user " + userId);
                         // Handle alarm (e.g., log or notify)
+                        broadcast(0, "ALARM!");
                         break;
                     case "REP":
                         try {
