@@ -102,6 +102,7 @@ public class TCPServer {
                     case "REP":
                         try {
                             int repeatCount = Integer.parseInt(data.trim());
+                            System.out.println("Repping " + repeatCount + " times.");
                             for (int i = 0; i < repeatCount; i++) {
                                 broadcast(0, "yo"); // 0 means server-originated
                             }
@@ -111,6 +112,7 @@ public class TCPServer {
                         break;
                     default:
                         // Ignore unknown token
+                        System.out.println("wat");
                         break;
                 }
             }
