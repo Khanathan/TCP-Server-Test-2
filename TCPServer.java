@@ -91,6 +91,7 @@ public class TCPServer {
                 switch (token) {
                     case "MSG":
                         if (data.length() <= 100) {
+                            System.out.println("Received message: " + data);
                             broadcast(userId, "MSG:" + data);
                         }
                         break;
