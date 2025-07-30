@@ -55,6 +55,7 @@ public class TCPClient {
             // Exit
             System.out.println("Client closing.");
         } catch (IOException e) {
+            System.out.println("Bruh");
             e.printStackTrace();
         }
     }
