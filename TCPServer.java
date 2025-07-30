@@ -33,6 +33,7 @@ public class TCPServer {
 
             // Read and validate auth string
             char[] authBuffer = new char[5];
+            System.out.println("auth: " + authBuffer);
             if (in.read(authBuffer, 0, 5) != 5 || !new String(authBuffer).equals(VALID_AUTH)) {
                 System.out.println("Client rejected, auth: " + authBuffer);
                 clientSocket.close(); // Drop connection if auth invalid
