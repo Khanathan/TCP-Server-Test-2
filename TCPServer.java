@@ -9,8 +9,11 @@ public class TCPServer {
     private static final ConcurrentHashMap<Integer, ClientHandler> clients = new ConcurrentHashMap<>();
     private static int nextUserId = 1;
 
-    public static void main(String[] args) {
-        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+    public static void main(String[] args) throws IOException {
+        InetAddress bindAddr = InetAddress.getByName("0.0.0.0");
+        try (
+
+                ServerSocket serverSocket = new ServerSocket(PORT, 50, bindAddr);) {
             System.out.println("Server started on port " + PORT);
 
             while (true) {
