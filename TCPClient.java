@@ -51,7 +51,7 @@ public class TCPClient {
                 } else {
                     System.out.println("Invalid command. Use MSG:<message>, ALM, or REP:<number>");
                 }
-
+                System.out.print("> ");
             }
             // Disconnect
             // Exit
