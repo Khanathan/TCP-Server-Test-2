@@ -18,6 +18,7 @@ public class TCPServer {
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
+                System.out.println("Incoming connection attempted");
                 new Thread(() -> handleClient(clientSocket)).start();
             }
         } catch (IOException e) {
@@ -28,6 +29,7 @@ public class TCPServer {
     private static void handleClient(Socket clientSocket) {
         try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
+            System.out.println("handleClient() started.");
 
             // Read and validate auth string
             char[] authBuffer = new char[5];
