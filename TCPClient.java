@@ -12,12 +12,9 @@ public class TCPClient {
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 Scanner consoleReader = new Scanner(System.in);) {
+            System.out.println("Sending auth");
             out.write(AUTH);
-            out.write(AUTH);
-            out.write(AUTH);
-            out.write(AUTH);
-            out.write(AUTH);
-            out.write(AUTH);
+            System.out.println("Auth sent");
             int userId = Integer.parseInt(in.readLine());
             System.out.println("Assigned User ID: " + userId);
 
