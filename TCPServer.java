@@ -92,7 +92,7 @@ public class TCPServer {
                     case "MSG":
                         if (data.length() <= 100) {
                             System.out.println("Received message: " + data);
-                            broadcast(userId, "MSG:" + data);
+                            broadcast(userId, data);
                         }
                         break;
                     case "ALM":
@@ -122,7 +122,7 @@ public class TCPServer {
         private void broadcast(int senderId, String message) {
             for (ClientHandler client : clients.values()) {
                 if (client.userId != senderId) {
-                    client.out.println(message);
+                    client.out.println(senderId + ": " + message);
                 }
             }
         }
