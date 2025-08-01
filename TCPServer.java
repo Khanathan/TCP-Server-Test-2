@@ -40,11 +40,10 @@ public class TCPServer {
                 clientSocket.close(); // Drop connection if auth invalid
                 return;
             }
-            System.out.println("auth client authenticated");
 
             // Assign user ID and send to client
             int userId = nextUserId++;
-            System.out.println("Assignged user ID: " + userId);
+            System.out.println("Assigned user ID: " + userId);
             out.println(userId);
 
             // Add client to list
