@@ -18,7 +18,7 @@ public class TCPServer {
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                System.out.println("Incoming connection attempted");
+                System.out.println("Incoming connection attempt from " + clientSocket.getInetAddress());
                 new Thread(() -> handleClient(clientSocket)).start();
             }
         } catch (IOException e) {
